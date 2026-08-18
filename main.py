@@ -1,5 +1,5 @@
 import func
-from modules import calculator, guess, bankomat
+from modules import calculator, guess, bankomat, ships
 
 while True:
     func.show_menu()
@@ -20,6 +20,9 @@ while True:
         # ===== БАНКОМАТ =====
         case 3:
             bankomat.bankomat()
+        # ===== КОРАБЛИ =====
+        case 4:
+            ships.ships()
         case _:
             print('===== Ошибка =====')
             print('Введите номер пункта от 1 до ')
