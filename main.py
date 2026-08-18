@@ -6,7 +6,8 @@ while True:
     try:
         number = int(input('Введите номер пункта:'))
     except ValueError:
-        print('Ошибка. Введите корректное число.')
+        print('===== Ошибка =====')
+        print('Введите корректное число.')
         continue
 
     match number:
@@ -20,4 +21,5 @@ while True:
         case 3:
             bankomat.bankomat()
         case _:
-            print('Ошибка. Введите номер пункта от 1 до ')
+            print('===== Ошибка =====')
+            print('Введите номер пункта от 1 до ')

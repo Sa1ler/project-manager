@@ -24,12 +24,14 @@ def guess():
         try:
             user_number = int(input('Введите число:'))
         except ValueError:
-            print('Ошибка. Введите корректное число.')
+            print('===== Ошибка =====')
+            print('Введите корректное число.')
             continue
         item += 1
 
         if not big_small(user_number):
-            print('Ошибка. Введите число от 1 до 50.')
+            print('===== Ошибка =====')
+            print('Введите число от 1 до 50.')
         else:
             result = check_number(user_number, correct_number)
             match result:
@@ -38,6 +40,7 @@ def guess():
                 case "Меньше":
                     print('Загаданное число меньше.')
                 case _:
+                    print('===== Поздравляем! =====')
                     print(f'Вы угадали! Загаданное число: {correct_number}. На угадывание у вас ушло {item} попыток.')
                     item = 0
                     confirmation = input('Хотите продолжить(да/нет)?:')

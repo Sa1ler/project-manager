@@ -1,4 +1,5 @@
 def show_menu():
+    print('===== Главное меню =====')
     print('1. Баланс')
     print('2. Пополнить баланс')
     print('3. Списать средства')
@@ -24,33 +25,41 @@ def bankomat():
         try:
             number = int(input('Введите номер пункта:'))
         except ValueError:
-            print('Ошибка. Введите корректное число.')
+            print('===== Ошибка =====')
+            print('Введите корректное число.')
             continue
         match number:
             case 1:
+                print('===== Баланс =====')
                 print(f'Ваш баланс: {balance}')
             case 2:
                 try:
                     add_sum = float(input('Введите сумму пополнения:'))
                 except ValueError:
-                    print('Ошибка. Введите корректную сумму:')
+                    print('===== Ошибка =====')
+                    print('Введите корректную сумму:')
                     continue
                 if add_sum < 1:
-                    print('Ошибка. Введите положительную сумму пополнения.')
+                    print('===== Ошибка =====')
+                    print('Введите положительную сумму пополнения.')
                 else:
                     balance = add(balance, add_sum)
                     history.append(f"Пополнение на сумму {add_sum}.")
+                    print('===== Пополнение =====')
                     print(f'Баланс успшно пополнен на сумму {add_sum}.\nТекущий баланс: {balance}')
             case 3:
                 try:
                     withdraw_sum = float(input('Введите сумму для списания:'))
                 except ValueError:
-                    print('Ошибка. Введите корректную сумму пополнения.')
+                    print('===== Ошибка =====')
+                    print('Введите корректную сумму пополнения.')
                 if withdraw_sum < 1 or withdraw_sum > balance:
-                    print('Ошибка. Введите корректное число непривышающее ваш баланс.')
+                    print('===== Ошибка =====')
+                    print('Введите корректное число непривышающее ваш баланс.')
                 else:
                     balance = withdraw(balance, withdraw_sum)
                     history.append(f"Списание на сумму {withdraw_sum}.")
+                    print('===== Списание =====')
                     print(f'Успешно списано {withdraw_sum} с вашего счета.\nТекущий баланс: {balance}')
             case 4:
                 try:
@@ -59,12 +68,15 @@ def bankomat():
                     print('Ошибка. Введите корректный PinCode.')
                     continue
                 if check_pin(user_pin, PinCode):
+                    print('===== Проверка PinCode =====')
                     print('PinCode верен.')
                 else:
+                    print('===== Проверка PinCode =====')
                     print('PinCode неверен.')
             case 5:
                 for i, item in enumerate(history, start=1):
                     print(f'{i}. {item}')
             case 6:
+                print('===== Выход =====')
                 print('Программа успешно закрыта.')
                 break
